@@ -1,0 +1,153 @@
+@import url('https://fonts.google.com/specimen/Roboto');
+
+:root {
+    --light-blue: #97BDE8; 
+    --dark-blue: #144D8C; 
+  }
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family:'Roboto', sans-serif; 
+}
+
+/* HEADER STYLING */
+
+#header {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px; 
+}
+
+#header-img {
+    height: 100%;
+    width: 100%;
+}
+
+#header-text {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 5rem; 
+    color:white; 
+    font-weight:700; 
+}
+
+h2 {
+    font-size: 2rem; 
+    color:white; 
+    font-weight:400; 
+}
+
+/* MAIN BODY OVERALL STYLING */
+
+.container {
+    margin-top: 40px; 
+}
+
+.row {
+    display: flex;
+    margin-left: 5%; 
+    margin-right: 5%; 
+}
+
+.left-col {
+    flex: 50%;
+}
+
+.right-col {
+    flex: 50%;
+}
+
+.full-col {
+    flex: 100%; 
+}
+
+.blue-separator {
+    width:90%; 
+    height:30px; 
+    background-color: var(--light-blue); 
+    margin:0 auto; 
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+}
+
+.centered-text {
+    vertical-align:middle; 
+}
+
+h3 {
+    font-weight:400; 
+    font-size: 1.5rem; 
+}
+
+h4 {
+    font-weight:700; 
+    color: var(--dark-blue);
+    font-size: 1.5rem; 
+}
+
+h5 {
+    font-weight: 700; 
+    font-size:1.25rem; 
+}
+
+.sub-rectangle{
+    width:50%; 
+}
+
+p {
+    font-size: 1rem; 
+}
+
+.left-third-col{
+    flex: 33%; 
+}
+
+.middle-third-col{
+    flex: 33%; 
+}
+
+.right-third-col{
+    flex: 33%; 
+}
+
+.clicky-box-blue {
+    width: 50%; 
+}
+
+.clicky-sub-rectangle {
+    width: 50%; 
+}
+
+/* SPECIFIC STYLING */
+
+#sheena-img {
+    width: 50%;
+}
+
+#contract-hours-img {
+    width:60%; 
+}
+
+#teacher-in-class-img {
+    width:50%; 
+}
+
+/* FOOTER STYLING */
+
+#footer {
+    margin-top: 80px; 
+    width:100%; 
+    background-color: var(--dark-blue); 
+    position: relative;
+    padding: 20px; 
+}
