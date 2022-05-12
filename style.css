@@ -132,7 +132,10 @@ p {
 
 #sheena-img {
     width: 50%;
+    /* width: 500px; */
 }
+
+
 
 #contract-hours-img {
     width:60%; 
@@ -141,6 +144,63 @@ p {
 #teacher-in-class-img {
     width:50%; 
 }
+
+.img-with-background {
+    position: relative;
+}
+
+.img-with-background::before {
+    position: absolute;
+    bottom: -40px;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background-image: url(assets/yellow-rectangle-tall.png);
+    content: "";
+    z-index: -1;
+}
+
+
+
+/* Requirements */
+.requirement-scroll-background {
+    width:100%;
+    /* height:1600px; */
+}
+
+.requirements-container {
+    /* position: fixed; */
+    top:500px;
+    left:0;
+    display: flex;
+    /* justify-content: space-between; */
+    text-align: center;
+}
+
+.requirement-each {
+    width: 20%;
+    position: relative;
+}
+
+.requirement-each::after {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background-color: lightblue; 
+    content: "";
+    z-index: -1;
+    border: 1px solid darkgray;    
+
+}
+
+.requirement-icon {
+    width: 100px;
+}
+
+
+
 
 /* FOOTER STYLING */
 
@@ -151,3 +211,4 @@ p {
     position: relative;
     padding: 20px; 
 }
+

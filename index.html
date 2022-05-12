@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script src="myscript.js"></script>
     </head>
 
     <body>
@@ -23,9 +29,9 @@
             <!-- Sheena Graham -->
             <div id="sheena" class="container">
                 <div class="row">
-                    <div class="left-col">
+                    <div class="left-col img-with-background">
                         <img id="sheena-img" class="floating-img" src="assets/sheena_graham.png">
-                        <img class="sub-rectangle" src="assets/yellow-rectangle-tall.png">
+                        <!-- <img class="sub-rectangle" src="assets/yellow-rectangle-tall.png"> -->
                     </div>
                     <div class="right-col">
                         <div class="centered-text">
@@ -54,12 +60,34 @@
             <!-- Teacher Requirements -->
             <div id="teacher-requirements" class="container">
                 <div class="row">
-                    <div class="full-col">
+                    <!-- <div class="full-col"> -->
                         <h5>Teachers need to meet many requirements before meeting qualifications. </h5>
-                        <p>These requirements will usually vary by state, but most K-12th public school teachers in the United States must go through the following steps before they can become full-time teachers. </p>
-                        <div>
-                            VISUALIZATION
+                        <p>The requirements for becoming a teacher vary by states, but most K-12th public school teachers in the United States usually need go through the following steps. The whole process takes at least 4-5 years in the best case when one studies education in one's undergraduate school. </p>
+                        <!-- <div class="requirement-scroll-background"> -->
+                        <div class="requirements-container">
+                            <div class="requirements-1 requirement-each">
+                                <img src="assets/graduation-hat.png" class="requirement-icon"/>
+                                <div class="requirement-text">A bachelor's degree</div>
+                            </div>
+                            <div class="requirements-2 requirement-each">
+                                <img src="assets/interview.png" class="requirement-icon"/>
+                                <div class="requirement-text">Completion of teacher eduction/preparation program</div>
+                            </div>
+                            <div class="requirements-3 requirement-each">
+                                <img src="assets/certificate.png" class="requirement-icon"/>
+                                <div class="requirement-text">A successful background check</div>
+                            </div>
+                            <div class="requirements-4 requirement-each">
+                                <img src="assets/background-check.png" class="requirement-icon"/>
+                                <div class="requirement-text">Passage of a general teacher certification or licensure exam</div>
+                            </div>
+                            <div class="requirements-5 requirement-each">
+                                <img src="assets/grade.png" class="requirement-icon"/>
+                                <div class="requirement-text">A good score on a subject test related to the focus area</div>
+                            </div>                            
                         </div>
+                        <!-- </div> -->
+                        
                     </div>
                 </div>
             </div>
@@ -77,9 +105,9 @@
                             <p>The average starting income for K-12th public school teachers in the United States is $42,800 per year. This amount will slowly increase with experience gained.</p>
                         </div>
                     </div>
-                    <div class="right-col">
+                    <div class="right-col" >
                         <div>
-                            VISUALIZATION
+                            <object data="assets/wage-map.svg" type="image/svg+xml"></object>
                         </div>
                     </div>
                 </div>
@@ -271,9 +299,9 @@
                     <h3>In conclusion, K-12th public school teachers have, and always have had, hard jobs, for a vast number of reasons related to financial impact, job stresses, and more. These create feelings of burnout for teachers and, eventually, make them leave their jobs. </h3>
                     <h3>We need to do more to improve the working conditions for K-12th teachers. </h3>
                 </div>
-                <div class="right-col">
+                <div class="right-col img-with-background">
                     <img id="teacher-in-class-img" class="floating-img" src="assets/teacher-in-class.png">
-                     <img class="sub-rectangle" src="assets/yellow-rectangle-tall.png">
+                     <!-- <img class="sub-rectangle" src="assets/yellow-rectangle-tall.png"> -->
                 </div>
             </div>
 
@@ -340,6 +368,14 @@
                     </p>
                     <p>The data sources for this subject are limited, especially during the years of the COVID-19 pandemic, which impacted quality of data. </p>
                 </div>
+            </div>
+            <div class="source">
+                <a href="https://www.flaticon.com/free-icons/interview" title="interview icons">Interview icons created by Freepik - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/background-check" title="background check icons">Background check icons created by Futuer - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/grade" title="grade icons">Grade icons created by Freepik - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/certificate" title="certificate icons">Certificate icons created by Smashicons - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/university" title="university icons">University icons created by Freepik - Flaticon</a>
+
             </div>
 
         </div>
