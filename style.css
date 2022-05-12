@@ -132,10 +132,14 @@ p {
 
 #sheena-img {
     width: 50%;
-    /* width: 500px; */
 }
 
+#xAxisTitle {
+    margin-left: 25%; 
+    font-size:0.8rem; 
+    margin-top: 2%
 
+}
 
 #contract-hours-img {
     width:60%; 
@@ -198,9 +202,6 @@ p {
 .requirement-icon {
     width: 100px;
 }
-
-
-
 
 /* FOOTER STYLING */
 
