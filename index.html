@@ -12,6 +12,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <script src="myscript.js"></script>
+
+        <!-- D3 Stuff-->
+        <script src="https://d3.js.org/d3.v7.min.js"></script>
     </head>
 
     <body>
@@ -209,6 +212,8 @@
                         <div>
                             VISUALIZATION
                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -220,7 +225,294 @@
                         <h5>Even compared to typical jobs within the United States, teachers are overworking.  </h5>
                         <p>Based on survey data from K-12th public school teachers in 2015 to 2016, public school teachers work, on average, over 53 hours per week. This is true for public K-12th teachers across populations, including school type, community type, etc. [B].  </p>
                         <div>
-                            VISUALIZATION
+                            <select id="selectButton"></select>
+                            <div id="plot">
+                            <div id="yAxisTitle"></div>
+                            <div id="interactivePlot"></div>
+                            <div id="xAxisTitle">Number of hours worked per week (including after school and weekends)</div>
+                            </div>
+                            <!-- D3 Stuff -->
+                            <script type="text/javascript">
+                                { 
+                                    //Load data 
+                                    let totalHours = [
+                                        {School_Characteristic: "All public schools",
+                                        Num_FullTime_Teachers: "3,555,600",
+                                        Percent_FullTime_Teachers: 92.9,
+                                        Required_Contract_Hours: 38.2,
+                                        Instruction_Delivery_Hours: 27.4,
+                                        Total_Hours: 53.3}]; 
+                                   
+                                    let totalHours_schoolClassification = [
+                                        {School_Characteristic: "Traditional Public",
+                                            Num_FullTime_Teachers: "3,356,400",
+                                            Percent_FullTime_Teachers: 93,
+                                            Required_Contract_Hours: 38.1,
+                                            Instruction_Delivery_Hours: 27.4,
+                                            Total_Hours: 53.2}, 
+                                        {School_Characteristic: "Charter School",
+                                            Num_FullTime_Teachers: "199,200", 
+                                            Percent_FullTime_Teachers: 91.2,
+                                            Required_Contract_Hours: 39.8,
+                                            Instruction_Delivery_Hours: 27.6,
+                                            Total_Hours: 54.4}
+                                    ]; 
+
+                                    let totalHours_communityType = [
+                                        {School_Characteristic: "City",
+                                            Num_FullTime_Teachers: "1,101,700",
+                                            Percent_FullTime_Teachers: 93.4,
+                                            Required_Contract_Hours: 38.1,
+                                            Instruction_Delivery_Hours: 27.6,
+                                            Total_Hours: 53.6}, 
+                                        {School_Characteristic: "Suburban",
+                                            Num_FullTime_Teachers: "1,399,300",
+                                            Percent_FullTime_Teachers: 92.5,
+                                            Required_Contract_Hours: 37.9,
+                                            Instruction_Delivery_Hours: 26.9,
+                                            Total_Hours: 52.9}, 
+                                        {School_Characteristic: "Town",
+                                            Num_FullTime_Teachers: "388,300",
+                                            Percent_FullTime_Teachers: 93.3,
+                                            Required_Contract_Hours: 38.9,
+                                            Instruction_Delivery_Hours: 27.9,
+                                            Total_Hours: 53.6}, 
+                                        {School_Characteristic: "Rural",
+                                            Num_FullTime_Teachers: "666,400",
+                                            Percent_FullTime_Teachers: 92.8,
+                                            Required_Contract_Hours: 38.6,
+                                            Instruction_Delivery_Hours: 28,
+                                            Total_Hours: 53.3}
+                                    ];
+
+                                    let totalHours_schoolLevel = [
+                                        {School_Characteristic: "Primary",
+                                            Num_FullTime_Teachers: "1,652,100",
+                                            Percent_FullTime_Teachers: 90.8,
+                                            Required_Contract_Hours: 38.1,
+                                            Instruction_Delivery_Hours: 28,
+                                            Total_Hours: 52.9}, 
+                                        {School_Characteristic: "Middle",
+                                            Num_FullTime_Teachers: "648,400",
+                                            Percent_FullTime_Teachers: 95.2,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 26.7,
+                                            Total_Hours: 52.9}, 
+                                        {School_Characteristic: "High",
+                                            Num_FullTime_Teachers: "1,045,700",
+                                            Percent_FullTime_Teachers: 95.3,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 26.8,
+                                            Total_Hours: 54},
+                                        {School_Characteristic: "Combined",
+                                            Num_FullTime_Teachers: "209,400",
+                                            Percent_FullTime_Teachers: 91.8,
+                                            Required_Contract_Hours: 38.8,
+                                            Instruction_Delivery_Hours: 27.8,
+                                            Total_Hours: 53.4}
+                                    ]; 
+                                    
+                                    let totalHours_studentEnrollment = [
+                                        {School_Characteristic: "Less than 100",
+                                            Num_FullTime_Teachers: "51,400",
+                                            Percent_FullTime_Teachers: 86.2,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 27.9,
+                                            Total_Hours: 50.4}, 
+                                        {School_Characteristic: "100-199",
+                                            Num_FullTime_Teachers: "101,900",
+                                            Percent_FullTime_Teachers: 87.1,
+                                            Required_Contract_Hours: 38.5,
+                                            Instruction_Delivery_Hours: 28.3,
+                                            Total_Hours: 52.9}, 
+                                        {School_Characteristic: "200-499",
+                                            Num_FullTime_Teachers: "975,100",
+                                            Percent_FullTime_Teachers: 90.7,
+                                            Required_Contract_Hours: 38,
+                                            Instruction_Delivery_Hours: 27.8,
+                                            Total_Hours: 52.8},
+                                        {School_Characteristic: "500-749",
+                                            Num_FullTime_Teachers: "989,900",
+                                            Percent_FullTime_Teachers: 92.9,
+                                            Required_Contract_Hours: 38.3,
+                                            Instruction_Delivery_Hours: 27.6,
+                                            Total_Hours: 53.4},
+                                        {School_Characteristic: "750-999",
+                                            Num_FullTime_Teachers: "519,600",
+                                            Percent_FullTime_Teachers: 94,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 27.2,
+                                            Total_Hours: 53.2},
+                                        {School_Characteristic: "1,000 or more",
+                                            Num_FullTime_Teachers: "917,700",
+                                            Percent_FullTime_Teachers: 95.9,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 26.8,
+                                            Total_Hours: 53.9}
+                                    ]
+                                    
+                                    let totalHours_freeReducedLunch = [
+                                        {School_Characteristic: "0-34",
+                                            Num_FullTime_Teachers: "1,154,800",
+                                            Percent_FullTime_Teachers: 92,
+                                            Required_Contract_Hours: 38.1,
+                                            Instruction_Delivery_Hours: 27,
+                                            Total_Hours: 53.3},
+                                        {School_Characteristic: "35-49",
+                                            Num_FullTime_Teachers: "511,300",
+                                            Percent_FullTime_Teachers: 93.5,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 27.2,
+                                            Total_Hours: 53.3},
+                                        {School_Characteristic: "50-74",
+                                            Num_FullTime_Teachers: "786,900",
+                                            Percent_FullTime_Teachers: 93.7,
+                                            Required_Contract_Hours: 38.3,
+                                            Instruction_Delivery_Hours: 27.6,
+                                            Total_Hours: 53.4},
+                                        {School_Characteristic: "75 or more",
+                                            Num_FullTime_Teachers: "992,400",
+                                            Percent_FullTime_Teachers: 93.5,
+                                            Required_Contract_Hours: 38.2,
+                                            Instruction_Delivery_Hours: 28,
+                                            Total_Hours: 53.1},
+                                        {School_Characteristic: "Did Not Participate",
+                                            Num_FullTime_Teachers: "110,100",
+                                            Percent_FullTime_Teachers: 88.4,
+                                            Required_Contract_Hours: 38.4,
+                                            Instruction_Delivery_Hours: 26.2,
+                                            Total_Hours: 52.4}
+                                    ];
+
+                                    let dataCapture = [totalHours, totalHours_schoolClassification, totalHours_communityType, totalHours_schoolLevel, totalHours_studentEnrollment, totalHours_freeReducedLunch]; 
+                                    //Sets up functionality for color 
+                                    let colorArray = d3.quantize(d3.interpolateHcl("#144D8C", "#97BDE8"), 6)
+                                    let colorVal; 
+                                    
+                                    //Set up margins
+                                    var margin = {top:50, right:20, bottom:20, left:100}, 
+                                        width = 1000 - margin.left - margin.right, 
+                                        height = 400 - margin.top - margin.bottom; 
+
+                                    //Set up SVG container 
+                                    var svg = d3.select("#interactivePlot")
+                                    .append("svg")
+                                        .attr("width", width + margin.left + margin.right)
+                                        .attr("height", height + margin.top + margin.bottom)
+                                    .append("g")
+                                        .attr("transform",
+                                            "translate(" + margin.left + "," + margin.top + ")");
+
+                                    //Sets up dropdown menu
+                                    let selector = d3.select("#selectButton"); 
+                                    
+                                        const allMessages = [ {display: "Select a Filter", value: 0},
+                                                        {display: "School Type", value: 1},
+                                                        {display: "Community Type", value: 2},
+                                                        {display: "School Level", value: 3},
+                                                        {display: "Student Enrollment", value: 4},
+                                                        {display:"Rate of Free or Reduced Lunch", value: 5}]
+                                    
+                                        const items = selector 
+                                        .selectAll('options')
+                                        .data(allMessages)
+                                        .enter()
+                                        .append('option')
+                                        .text(function (d) { return d.display; }) 
+                                        .attr("value", function (d) { return d.value; })
+
+                                    drawPlot(0); 
+                                    
+                                    //A helper function that draws the plot for the dataSource 
+                                    function drawPlot(dataSource) {
+
+                                        //A tracker that will help us determine color 
+                                        colorVal = 0; 
+                                        
+                                        // Add X axis  
+                                        let x = d3.scaleLinear()
+                                        .domain([0, 60])
+                                        .range([ 0, width]);
+                                        svg.append("g")
+                                        .attr("transform", `translate(0, ${height})`)
+                                        .call(d3.axisBottom(x))
+                                        .selectAll("text")
+                                        .attr("transform", "translate(-10,0)rotate(-45)")
+                                        .style("text-anchor", "end")
+                                        
+                                        // Y axis 
+                                        let y = d3.scaleBand()
+                                        .range([ 0, height ])
+                                        .domain(dataReach(dataSource).map(d => d.School_Characteristic))
+                                        .padding(.1);
+                                        svg.append("g")
+                                        .call(d3.axisLeft(y))
+
+                                        //Bars
+                                        svg.selectAll("myRect")
+                                        .data(dataReach(dataSource))
+                                        .enter()
+                                        .append("rect")
+                                        .attr("x", x(0) )
+                                        .attr("y", d => y(d.School_Characteristic))
+                                        .attr("width", d => x(d.Total_Hours))
+                                        .attr("height", y.bandwidth())
+                                        .attr("fill", d =>color(colorVal))
+
+                                        //Draws the 40 hour work week line 
+                                        var line = svg.append("line")
+                                        .style("stroke", "#F28E2B")
+                                        .style("stroke-width", "5")
+                                        .attr("x1", (40/60) * width)
+                                        .attr("y1", 0)
+                                        .attr("x2", (40/60) * width)
+                                        .attr("y2", height);
+
+                                        var lineText = svg.append("text")
+                                        .attr("x", (40/60) * width)
+                                        .attr("y", -20)
+                                        .attr("text-anchor", "middle")
+                                        .attr("id", "lineText")
+                                        .text("Average 40 Hour Work Week");
+                                        
+                                    }
+                                    
+                                    //A helper function for updating the bar chart after first initialization 
+                                    function update(dataSource) {   
+
+                                        //First, remove all things that need to be changed 
+                                        d3.selectAll("rect").remove(); 
+                                        d3.selectAll("line").remove(); 
+                                        d3.selectAll(".tick").remove(); 
+                                        d3.selectAll("text").remove();
+
+                                    drawPlot(dataSource); 
+                                    }
+
+                                    //A helper function that points to the correct data source 
+                                    function dataReach(value) {
+                                        return dataCapture[value]; 
+                                    }
+
+                                    //A helper function for assigning color 
+                                    function color(value) {
+                                        colorVal += 1; 
+                                        return colorArray[value];
+                                    }
+                                    
+                                    //A function that runs when the selector is updated 
+                                    selector.on('change', function() {
+                                        const dataSource = d3.select(this).property("value");
+                                        update(dataSource); 
+
+                                    });
+
+                                    
+                    
+                                }
+
+                                
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -255,9 +547,19 @@
                     <div class="full-col">
                         <h5>Additionally, as teachers take on more students, they must devote more time and energy to their work. </h5>
                         <p>Class size has a large impact on classroom management. When there are fewer students to distract one other, teachers can also spend more time working with with students one on one. One teacher we interviewed, for example, mentioned feeling “lucky” to have a smaller class size of 28 because larger classes are typically “a disaster” [C].  </p>
-                        <div>
-                            VISUALIZATION
-                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="left-col">
+                        <img id="orange-teacher" src="assets/orange_teacher.png">
+                    </div>
+                    <div class="right-col">
+                        <img id="student-ratio-breakdown" src="assets/student-ratio-breakdown.png">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="full-col">
                         <p>However, at a ratio of 30.4 students to one teacher, the United States in 2019 had the 8th highest student-to-teacher ratio compared to other developed nations. The effects of the COVID-19 pandemic may have increased this ratio, for as teachers leave their jobs due to stress, those who remain must take on additional students [A]. </p>
                         <p>Altogether, this means more on-the-job stress and more uncontracted hours, all for the same amount of pay, which contributes to both more stress on the teacher’s part and lower quality one-on-one education for the students. </p>
                     </div>

@@ -9,6 +9,7 @@ body {
     padding: 0;
     margin: 0;
     font-family:'Roboto', sans-serif; 
+    overflow-x:hidden; 
 }
 
 /* HEADER STYLING */
@@ -132,13 +133,25 @@ p {
 
 #sheena-img {
     width: 50%;
-    /* width: 500px; */
 }
 
+#xAxisTitle {
+    margin-left: 25%; 
+    font-size:0.8rem; 
+    margin-top: 2%
 
+}
 
 #contract-hours-img {
     width:60%; 
+}
+
+#orange-teacher {
+    width:100px; 
+}
+
+#student-ratio-breakdown {
+    width: 110%; 
 }
 
 #teacher-in-class-img {
@@ -201,6 +214,7 @@ p {
     width: 100px;
 }
 
+
 /* WAGE STYLING */
 
 .wage-label-container {
@@ -227,6 +241,7 @@ p {
     height: 150px;
     margin-left: 30%;
 }
+
 
 /* FOOTER STYLING */
 
