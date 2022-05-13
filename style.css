@@ -160,12 +160,13 @@ p {
 
 .img-with-background {
     position: relative;
+    text-align: center;
 }
 
 .img-with-background::before {
     position: absolute;
-    bottom: -40px;
-    left: 50px;
+    bottom: -10%;
+    left: 35%;
     width: 50%;
     height: 100%;
     background-image: url(assets/yellow-rectangle-tall.png);
@@ -188,6 +189,7 @@ p {
     display: flex;
     /* justify-content: space-between; */
     text-align: center;
+    margin: 100px 0px;
 }
 
 .requirement-each {
@@ -212,6 +214,35 @@ p {
     width: 100px;
 }
 
+
+/* WAGE STYLING */
+
+.wage-label-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+/* PIE CHART STYLING */
+
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.pie-text {
+    align-self: center;
+    width: 300px;
+    height: 200px;
+}
+
+.teacher-amount-img {
+    height: 150px;
+    margin-left: 30%;
+}
+
+
 /* FOOTER STYLING */
 
 #footer {
@@ -222,3 +253,20 @@ p {
     padding: 20px; 
 }
 
+/* GENERAL */
+
+.margin-top-80px {
+    margin-top: 80px;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin-left-50px {
+    margin-left: 50px;
+}
+
+.margin-top-10px {
+    margin-top: 10px;
+}
