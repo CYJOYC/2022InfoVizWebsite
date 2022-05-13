@@ -64,7 +64,7 @@ h2 {
 /* MAIN BODY OVERALL STYLING */
 
 .container {
-    margin-top: 40px; 
+    margin-top: 20px; 
 }
 
 .row {
@@ -246,7 +246,9 @@ p {
 
 
 .hours-country-bar {
-    margin-left: 15%;
+    position:relative; 
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 50px;
 }
 
@@ -332,6 +334,7 @@ p {
 
 #footer p {
     color: white; 
+    font-size: 12px; 
 }
 
 #footer img {
