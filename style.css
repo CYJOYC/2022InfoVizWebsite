@@ -165,13 +165,10 @@ p {
 
 #orange-teacher {
     width:100px; 
-    margin-left:100px;
 }
 
 #student-ratio-breakdown {
     width: 150%; 
-    position: relative; 
-    left: -250px; 
 }
 
 
@@ -210,14 +207,18 @@ p {
     display: flex;
     /* justify-content: space-between; */
     text-align: center;
-    margin: 100px 0px;
+    margin: 100px 0 50px 0;
 }
 
 .requirement-each {
     width: 20%;
-    position: relative;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
-
+/* 
 .requirement-each::after {
     position: absolute;
     bottom: -40px;
@@ -229,12 +230,56 @@ p {
     z-index: -1;
     border: 1px solid darkgray;    
 
-}
+} */
 
 .requirement-icon {
     width: 100px;
 }
 
+.requirement-text {
+    margin: 30px 0;
+}
+
+.requirement-arrow {
+    width: 50px;
+}
+
+
+.hours-country-bar {
+    margin-left: 15%;
+    margin-top: 50px;
+}
+
+.hours-us-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 ;
+}
+
+.hours-us-select {
+    justify-self: flex-end;
+    align-self: end;
+    margin-right: 10%;
+    margin-bottom: 30px;
+}
+
+
+.teacher-student-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.teacher-container {
+    width: 10%;
+    margin: 0 5%;
+}
+
+.student-container {
+    width: 50%;
+}
 
 /* WAGE STYLING */
 
@@ -263,6 +308,17 @@ p {
     margin-left: 30%;
 }
 
+
+
+/* REASONS STYLING */
+.reasons-leaving {
+    width: 80%;
+}
+
+.reason-container  {
+    text-align: center;
+    margin: 100px 0;
+}
 
 /* FOOTER STYLING */
 
@@ -309,4 +365,17 @@ p {
 
 .margin-top-10px {
     margin-top: 10px;
+}
+
+.margin-top-50px {
+    margin-top: 50px;
+}
+
+.margin-bottom-50px {
+    margin-bottom: 50px;
+}
+
+.extra {
+    margin-left: 10%;
+    margin-bottom: 30px;
 }
