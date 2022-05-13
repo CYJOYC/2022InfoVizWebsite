@@ -12,6 +12,19 @@ body {
     overflow-x:hidden; 
 }
 
+a {
+    text-decoration: underline; 
+    color: var(--dark-blue);
+}
+
+a:hover {
+    background-color:var(--light-blue)
+}
+
+.bold-text {
+    font-weight: 700; 
+}
+
 /* HEADER STYLING */
 
 #header {
@@ -62,15 +75,25 @@ h2 {
 
 .left-col {
     flex: 50%;
+    position: relative; 
 }
 
 .right-col {
     flex: 50%;
+    position: relative; 
 }
 
 .full-col {
     flex: 100%; 
+    position: relative; 
 }
+
+.vertical-center {
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 .blue-separator {
     width:90%; 
@@ -79,10 +102,6 @@ h2 {
     margin:0 auto; 
     margin-top: 40px; 
     margin-bottom: 40px; 
-}
-
-.centered-text {
-    vertical-align:middle; 
 }
 
 h3 {
@@ -109,24 +128,22 @@ p {
     font-size: 1rem; 
 }
 
-.left-third-col{
+#left-third-col{
+    flex: 33%;
+    margin-right: 20px;  
+}
+
+#middle-third-col{
+    flex: 33%; 
+    margin-right: 20px; 
+}
+
+#right-third-col{
     flex: 33%; 
 }
 
-.middle-third-col{
-    flex: 33%; 
-}
-
-.right-third-col{
-    flex: 33%; 
-}
-
-.clicky-box-blue {
-    width: 50%; 
-}
-
-.clicky-sub-rectangle {
-    width: 50%; 
+.action-title {
+    font-weight:700; 
 }
 
 /* SPECIFIC STYLING */
@@ -148,11 +165,15 @@ p {
 
 #orange-teacher {
     width:100px; 
+    margin-left:100px;
 }
 
 #student-ratio-breakdown {
-    width: 110%; 
+    width: 150%; 
+    position: relative; 
+    left: -250px; 
 }
+
 
 #teacher-in-class-img {
     width:50%; 
@@ -251,6 +272,25 @@ p {
     background-color: var(--dark-blue); 
     position: relative;
     padding: 20px; 
+}
+
+#footer p {
+    color: white; 
+}
+
+#footer img {
+    width:110px; 
+    border-radius:50%; 
+    margin-right:50px; 
+
+}
+
+#footer img:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}
+
+#footer a:hover {
+    background: unset; 
 }
 
 /* GENERAL */
